@@ -1,0 +1,66 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: #2E3B4E;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+/* Navigation Menu Styles */
+nav {
+  background-color: #f4f4f4;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  color: #333;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd;
+}
+
+/* Section Styles */
+section {
+  padding: 20px;
+}
+
+section h3 {
+  border-bottom: 2px solid #2E3B4E;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Project Styles */
+.project {
+  margin-bottom: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #2E3B4E;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
