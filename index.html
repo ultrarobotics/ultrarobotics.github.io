@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fabio Boekel - About Me</title>
+  <title>Fabio Boekel - Robotics Engineer</title>
   <link rel="stylesheet" href="css/styles.css">
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,73 +13,120 @@
   <!-- Header Section -->
   <header>
     <div class="header-content">
-      <img src="images/profile.jpeg" alt="Fabio Boekel" class="profile-image">
+      <div class="profile-image-container">
+        <img src="images/profile.jpeg" alt="Fabio Boekel" class="profile-image">
+        <div class="social-media">
+          <a href="https://www.linkedin.com/in/fabio-boekel" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/ultra.robotics" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
       <div class="header-text">
         <h1>Fabio Boekel</h1>
-        <h2>Roboticist</h2>
+        <h2>Robotics Engineer</h2>
+        <p>I am passionate about the full spectrum of robotics, from conceptual design to the intricacies of mechanical and electrical engineering, and the advanced cognitive software which makes robots work well in unstructured environments. My expertise lies in bridging these areas, possessing a broad knowledge base while specializing in cognitive software solutions, which includes computer vision, robot control, learning, reasoning, and planning. I am adept at mechatronics prototyping, creating aesthetic designs, and translating them into functional systems. My current focus is on learning-based design and control applied to legged robots. I am a team player, eager to learn from others and enthusiastic about sharing my knowledge.</p>
       </div>
     </div>
   </header>
 
-  <!-- Navigation Menu -->
-  <nav>
+  <!-- Main Content -->
+  <main>
+  <!-- Robot Project Section -->
+  <section id="robot-project">
+    <h3>MSc Thesis: Co-design of Quadruped Using Reinforcement Learning</h3>
+    <img src="images/robot.jpg" alt="Fabio Boekel's Robot" class="robot-image">
     <ul>
-      <li><a href="index.html" class="active">About Me</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-    </ul>
-  </nav>
-
-  <!-- About Me Section -->
-  <section id="about">
-    <h3>About Me</h3>
-    <p>ToDo.</p>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education">
-    <h3>Education</h3>
-    <ul>
-      <li><strong>Master of Science in Robotics</strong>, ToDo</li>
-      <li><strong>ToDo</strong>, ToDo</li>
-    </ul>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <h3>Skills</h3>
-    <ul>
-      <li>ToDo</li>
-    </ul>
-  </section>
-
-  <!-- Publications Section -->
-  <section id="publications">
-    <h3>Publications</h3>
-    <ul>
-      <li>ToDo</li>
+      <li><strong>Developed a complete quadruped hardware platform from scratch, covering:</strong>
+        <ul class="sub-bullet">
+          <li>Mechanical design and structural development.</li>
+          <li>Electronic setup and component selection for optimal performance.</li>
+          <li>Low-level software to enable motor communication with NVIDIA Jetson via CAN bus.</li>
+          <li>Linux service scripts to initialize and manage low-level software processes.</li>
+        </ul>
+      </li>
+      <li><strong>Applied Reinforcement Learning to train locomotion policies:</strong>
+        <ul class="sub-bullet">
+          <li>Utilized MJX and PPO for various locomotion policy training.</li>
+          <li>Created a robust training infrastructure for streamlined policy testing and verification.</li>
+          <li>Developed scripts to convert and deploy policies on the physical robot.</li>
+        </ul>
+      </li>
+      <li><strong>Successfully implemented and demonstrated trained policies on a real-world quadruped robot:</strong>
+        <ul class="sub-bullet">
+          <li>The robot consistently performed well at various events, operating continuously without failure or falls.</li>
+        </ul>
+      </li>
     </ul>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h3>Contact</h3>
-    <!-- Social Media Buttons -->
-    <div class="social-media">
-      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.instagram.com/yourprofile" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://github.com/yourusername" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-  </section>
+    <!-- Education Section -->
+    <section id="education">
+      <h3>Education</h3>
+      <ul>
+        <li><strong>Master in Cognitive Robotics</strong>, TU Delft (09-2022 – Present).
+          <ul class="sub-bullet">
+            <li>Robot dynamics and control.</li>
+            <li>Deep learning, computer vision and intelligent control.</li>
+            <li>Robot reasoning and planning.</li>
+            <li>Human-robot interaction.</li>
+          </ul>
+        </li>
+        <li><strong>Pre-Master in Robotics</strong>, TU Delft (09-2021 – 07-2022).
+          <ul class="sub-bullet">
+            <li>Mathematics.</li>
+            <li>Systems and control.</li>
+          </ul>
+        </li>
+        <li><strong>Bachelor in Industrial Design Engineering</strong>, TU Delft (09-2018 – 07-2021).
+          <ul class="sub-bullet">
+            <li>Minor in electrical engineering.</li>
+            <li>Delft design method and sketching.</li>
+            <li>Sustainability, life cycle assessment and circular economy.</li>
+            <li>Manufacturing and material science.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience">
+      <h3>Work Experience</h3>
+      <ul>
+        <li><strong>Private Tutor in Physics and Mathematics</strong> (2016 - Present).
+          <ul class="sub-bullet">
+            <li>Teaching, exam preparation, and planning.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+      <h3>Publications</h3>
+      <ul>
+        <li><a href="https://ieeexplore.ieee.org/abstract/document/10550040" target="_blank">J. Ding, P. Posthoorn, V. Atanassov, F. Boekel, J. Kober, and C. D. Santina, "<strong>Quadrupedal Locomotion With Parallel Compliance: E-Go Design, Modeling, and Control</strong>," in <em>IEEE/ASME Transactions on Mechatronics</em>.</a></li>
+      </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h3>Skills</h3>
+      <ul>
+        <li><strong>Languages:</strong> Dutch, English.</li>
+        <li><strong>Programming:</strong> Python, C++, ROS 1 & 2, Linux, PyTorch, JAX, scikit-learn, Git, MATLAB, LaTeX.</li>
+        <li><strong>Simulation and Control:</strong> MuJoCo (MJX), NVIDIA Isaac Sim (GYM), Gazebo, MATLAB Simulink.</li>
+        <li><strong>CAD:</strong> Solidworks.</li>
+        <li><strong>Practical Skills:</strong> 3D printing, electronic soldering, NVIDIA Jetson, workplace tools, electronic measurement instruments.</li>
+      </ul>
+      
+  </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 Fabio Boekel/p>
+    <p>&copy; 2024 Fabio Boekel.</p>
   </footer>
 
 </body>
