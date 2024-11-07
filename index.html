@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fabio Boekel - Robotics Engineer</title>
+  
+  <!-- Google Fonts for a Modern Look -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Font Awesome CDN -->
+  
+  <!-- Font Awesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -16,13 +22,16 @@
       <div class="profile-image-container">
         <img src="images/profile.jpeg" alt="Fabio Boekel" class="profile-image">
         <div class="social-media">
-          <a href="https://www.linkedin.com/in/fabio-boekel" target="_blank">
+          <a href="https://www.linkedin.com/in/fabio-boekel" target="_blank" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://www.instagram.com/ultra.robotics" target="_blank">
+          <a href="https://www.instagram.com/ultra.robotics" target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-        </div>
+          <a href="https://github.com/ultrarobotics" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>        
       </div>
       <div class="header-text">
         <h1>Fabio Boekel</h1>
@@ -34,39 +43,155 @@
 
   <!-- Main Content -->
   <main>
-  <!-- Robot Project Section -->
-  <section id="robot-project">
-    <h3>MSc Thesis: Co-design of Quadruped Using Reinforcement Learning</h3>
-    <img src="images/robot.jpg" alt="Fabio Boekel's Robot" class="robot-image">
-    <ul>
-      <li><strong>Developed a complete quadruped hardware platform from scratch, covering:</strong>
-        <ul class="sub-bullet">
-          <li>Mechanical design and structural development.</li>
-          <li>Electronic setup and component selection for optimal performance.</li>
-          <li>Low-level software to enable motor communication with NVIDIA Jetson via CAN bus.</li>
-          <li>Linux service scripts to initialize and manage low-level software processes.</li>
-        </ul>
-      </li>
-      <li><strong>Applied Reinforcement Learning to train locomotion policies:</strong>
-        <ul class="sub-bullet">
-          <li>Utilized MJX and PPO for various locomotion policy training.</li>
-          <li>Created a robust training infrastructure for streamlined policy testing and verification.</li>
-          <li>Developed scripts to convert and deploy policies on the physical robot.</li>
-        </ul>
-      </li>
-      <li><strong>Successfully implemented and demonstrated trained policies on a real-world quadruped robot:</strong>
-        <ul class="sub-bullet">
-          <li>The robot consistently performed well at various events, operating continuously without failure or falls.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
+    <!-- Project Carousel Section -->
+    <section id="projects-carousel">
+      <h3>Projects</h3>
+      <div class="carousel-container">
+        <!-- Project Navigation -->
+        <div class="project-navigation">
+          <button class="project-nav-btn" onclick="prevProject()" aria-label="Previous Project">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <ul class="project-names">
+            <li class="project-name active" onclick="goToProject(0)">MSc Thesis</li>
+            <li class="project-name" onclick="goToProject(1)">Hobby Quadruped</li>
+            <li class="project-name" onclick="goToProject(2)">Multidisciplinary Project</li>
+          </ul>
+          <button class="project-nav-btn" onclick="nextProject()" aria-label="Next Project">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="carousel-content">
+          <div class="project-slide active" id="project1">
+            <h4>MSc Thesis: Co-design of Quadruped Using Reinforcement Learning</h4>
+            
+            <!-- Embedded YouTube Video -->
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/ncXCRyfIYDc?autoplay=1&mute=1&loop=1&playlist=ncXCRyfIYDc&controls=1&modestbranding=1&rel=0" 
+                title="MSc Thesis: Co-design of Quadruped Using Reinforcement Learning Video" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            
+            <p>
+            My self-proposed thesis that focuses on the co-design of a quadruped robot. I developed a framework that uses reinforcement learning and Bayesian optimization to optimize both the software and hardware of the robot. The result is a high-performing quadruped platform, tested extensively in real-world settings.
+            </p>
+            <ul>
+              <li><strong>Modular Hardware Platform:</strong>
+                <ul class="sub-bullet">
+                  <li>Built for flexibility, allowing easy modifications and upgrades.</li>
+                  <li>Powered by an onboard NVIDIA Jetson to manage control policies efficiently.</li>
+                </ul>
+              </li>
+              <li><strong>Real-World Impact:</strong>
+                <ul class="sub-bullet">
+                  <li>Seamless transfer of optimized policies to hardware, with marked improvements in performance.</li>
+                </ul>
+              </li>
+            </ul>
+
+                        
+            <!-- Image Gallery -->
+            <div class="project-gallery">
+              <img src="images/project1-img1.jpg" alt="Project Image 1">
+              <img src="images/project1-img2.jpg" alt="Project Image 2">
+              <img src="images/project1-img3.jpg" alt="Project Image 3">
+            </div>
+            
+
+          </div>
+          <div class="project-slide" id="project2">
+            <h4>Hobby Quadruped Project</h4>
+            
+            <!-- Embedded YouTube Video (Replaced Top Image) -->
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/jH-HZgX0gAA?autoplay=1&mute=1&loop=1&playlist=jH-HZgX0gAA&controls=1&modestbranding=1&rel=0" 
+                title="Hobby Quadruped Project Video" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            
+            <!-- Removed the original top image
+            <img src="images/hobby_robot.jpg" alt="Hobby Quadruped Robot" class="project-image">
+            -->
+            
+            <p>This personal project allowed me to explore a smaller, more affordable quadruped design from scratch. Through this process, I gained invaluable experience across all major aspects of robotics engineering.</p>
+            <ul>
+              <li><strong>Mechanical Design:</strong> 
+                <ul class="sub-bullet">
+                  <li>Constructed a durable structure with quasi-direct drive, optimizing for backdrivability.</li>
+                </ul>
+              </li>
+              <li><strong>Electrical Integration:</strong>
+                <ul class="sub-bullet">
+                  <li>Incorporated FOC motor drivers and BLDC motors with CAN-based communication for efficient control.</li>
+                  <li>Designed with safety in mind, adding inrush current protection and fuses.</li>
+                </ul>
+              </li>
+              <li><strong>Software Development:</strong>
+                <ul class="sub-bullet">
+                  <li>Programmed C++ code for inverse kinematics and trajectory generation.</li>
+                  <li>Operated on Ubuntu and ROS 2 with Bluetooth gamepad control, using MuJoCo for simulations.</li>
+                </ul>
+              </li>
+            </ul>
+
+              <!-- Image Gallery -->
+
+              <div class="project-gallery">
+                <img src="images/project2-img1.jpg" alt="Project Image 1">
+                <img src="images/project2-img2.jpg" alt="Project Image 2">
+                <img src="images/project2-img3.jpg" alt="Project Image 3">
+                <img src="images/project2-img4.jpg" alt="Project Image 4">
+                <img src="images/project2-img5.jpg" alt="Project Image 5">
+                <img src="images/project2-img6.jpg" alt="Project Image 6">
+              </div>
+          </div>
+          <div class="project-slide" id="project3">
+            <h4>Multidisciplinary Group Project: Shelf Scanning Robot</h4>
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/8Zao18r7ETY?autoplay=1&mute=1&loop=1&playlist=8Zao18r7ETY&controls=1&modestbranding=1&rel=0" 
+                title="Hobby Quadruped Project Video" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p>This project was the capstone of my first year, integrating multiple disciplines to create a robot capable of scanning store shelves and removing misplaced items. I led the software architecture and motion planning aspects of the project.</p>
+            <ul>
+              <li><strong>System Architecture:</strong>
+                <ul class="sub-bullet">
+                  <li>Developed software architecture for seamless integration of motion planning and shelf scanning.</li>
+                </ul>
+              </li>
+              <li><strong>Motion Planning:</strong>
+                <ul class="sub-bullet">
+                  <li>Implemented with MoveIt for precise robotic arm positioning.</li>
+                  <li>Validated the motion in both simulated and real environments, ensuring reliability in a store-like setting.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Publications Section -->
     <section id="publications">
       <h3>Publications</h3>
       <ul>
-        <li><a href="https://ieeexplore.ieee.org/abstract/document/10550040" target="_blank">J. Ding, P. Posthoorn, V. Atanassov, F. Boekel, J. Kober, and C. D. Santina, "<strong>Quadrupedal Locomotion With Parallel Compliance: E-Go Design, Modeling, and Control</strong>," in <em>IEEE/ASME Transactions on Mechatronics</em>.</a></li>
+        <li>
+          <a href="https://ieeexplore.ieee.org/abstract/document/10550040" target="_blank">
+            J. Ding, P. Posthoorn, V. Atanassov, F. Boekel, J. Kober, and C. D. Santina, "<strong>Quadrupedal Locomotion With Parallel Compliance: E-Go Design, Modeling, and Control</strong>," in <em>IEEE/ASME Transactions on Mechatronics</em>.
+          </a>
+        </li>
       </ul>
     </section>
       
@@ -77,5 +202,7 @@
     <p>&copy; 2024 Fabio Boekel.</p>
   </footer>
 
+  <!-- External JavaScript -->
+  <script src="js/carousel.js"></script>
 </body>
 </html>
