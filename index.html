@@ -63,7 +63,7 @@
         </div>
         <div class="carousel-content">
           <div class="project-slide active" id="project1">
-            <h4>MSc Thesis: Co-design of Quadruped Using Reinforcement Learning</h4>
+            <h4>MSc Thesis: Co-design of Quadruped Using Reinforcement Learning (in progress)</h4>
             
             <!-- Embedded YouTube Video -->
             <div class="video-container">
@@ -77,22 +77,71 @@
             </div>
             
             <p>
-            My self-proposed thesis that focuses on the co-design of a quadruped robot. I developed a framework that uses reinforcement learning and Bayesian optimization to optimize both the software and hardware of the robot. The result is a high-performing quadruped platform, tested extensively in real-world settings.
+              During my master’s studies and personal projects building robots, I encountered the challenges of designing robots that perform effectively in real-world scenarios. These experiences inspired me to focus my self-proposed thesis on <strong>learning-based co-design</strong>. Co-design is a promising approach that optimizes a robot’s physical design and motion simultaneously, simplifying the process of creating high-performance robotic systems.
             </p>
+            <p>
+              In my thesis, I applied co-design principles to a quadruped robot, working across several key areas to bridge hardware and software:
+            </p>
+          
             <ul>
-              <li><strong>Modular Hardware Platform:</strong>
+              <li><strong>Designing the Robot:</strong>
                 <ul class="sub-bullet">
-                  <li>Built for flexibility, allowing easy modifications and upgrades.</li>
-                  <li>Powered by an onboard NVIDIA Jetson to manage control policies efficiently.</li>
+                  <li>Defined platform requirements with a focus on modularity, torque-controlled motors, and cost-efficiency.</li>
+                  <li>Selected electronic and mechanical components, negotiating discounts with suppliers.</li>
+                  <li>Designed the robot with modularity and manufacturability in mind to easily test various co-optimized designs.</li>
+                  <li>Created a comprehensive CAD model in SolidWorks and prototyped subcomponents such as the legs, compute module, and body layout.</li>
+                  <li>Developed a modular design space (details to be announced soon).</li>
                 </ul>
               </li>
-              <li><strong>Real-World Impact:</strong>
+              <li><strong>Building the Robot:</strong>
                 <ul class="sub-bullet">
-                  <li>Seamless transfer of optimized policies to hardware, with marked improvements in performance.</li>
+                  <li>Fabricated all parts using my Creality CR-10 3D printer.</li>
+                  <li>Hand-crafted wiring with soldering tools and heat guns.</li>
+                  <li>Tested electronics using professional-grade equipment, including a power supply, multimeter, and oscilloscope.</li>
+                </ul>
+              </li>
+              <li><strong>Developing Low-Level Software:</strong>
+                <ul class="sub-bullet">
+                  <li>Enhanced C++ packages to integrate with my custom software stack for I²C communication with the MPU6050 IMU in DMP mode, reducing computation on the NVIDIA Jetson platform.</li>
+                  <li>Built asynchronous Python-based bi-directional CAN communication for Xiaomi Cybergears motors, translating technical documentation from a Chinese manual.</li>
+                  <li>Automated the initialization of the IMU and PEAK CAN devices using Linux services.</li>
+                  <li>Configured NVIDIA JetPack with all necessary drivers and packages.</li>
+                </ul>
+              </li>
+              <li><strong>Simulating the Robot:</strong>
+                <ul class="sub-bullet">
+                  <li>Exported the robot’s CAD design from SolidWorks to URDF and converted it to MJCF for simulation.</li>
+                  <li>Created a realistic robot model by measuring part weights and consulting motor datasheets.</li>
+                  <li>Developed functions to easily select designs within the modular design space, enabling automated model updates.</li>
+                </ul>
+              </li>
+              <li><strong>Creating a Reinforcement Learning-Based Co-Design Algorithm:</strong>
+                <ul class="sub-bullet">
+                  <li>Built a parallelizable RL environment using MuJoCo (MJX) and Brax.</li>
+                  <li>Trained locomotion policies using Brax’s JAX-based PPO algorithm for flat and rough terrains, exploring gaits such as trotting and pronking.</li>
+                  <li>Designed a co-design algorithm leveraging RL principles (further details to be announced).</li>
+                </ul>
+              </li>
+              <li><strong>Setting Up RL Training Infrastructure:</strong>
+                <ul class="sub-bullet">
+                  <li>Streamlined the training process with an optimized RL training pipeline.</li>
+                  <li>Created configuration files for efficient training and evaluation workflows.</li>
+                  <li>Automated tools for monitoring training progress through real-time plotting.</li>
+                </ul>
+              </li>
+              <li><strong>Transferring Policies to the Real Robot:</strong>
+                <ul class="sub-bullet">
+                  <li>Improved sim-to-real transfer using domain randomization, sensor noise injection, and disturbance modeling.</li>
+                  <li>Conducted sim-to-sim policy transfers to test locomotion via a gamepad.</li>
+                  <li>Built scripts to convert trained JAX models to PyTorch and ONNX formats for use in simulation and on the real robot.</li>
+                  <li>Leveraged TensorRT and PyCUDA to enable efficient neural network inference on the NVIDIA Jetson platform.</li>
                 </ul>
               </li>
             </ul>
-
+            
+            <p>
+              Through this project, I combined my passion for designing robots with my interest in learning-based optimization, resulting in a modular platform that integrates co-optimized designs with real-world deployment. My approach exemplifies how a synergy between hardware and AI algorithms can push the boundaries of robotic performance in complex environments.
+            </p>
                         
             <!-- Image Gallery -->
             <div class="project-gallery">
@@ -121,9 +170,11 @@
             <img src="images/hobby_robot.jpg" alt="Hobby Quadruped Robot" class="project-image">
             -->
             
-            <p>This personal project allowed me to explore a smaller, more affordable quadruped design from scratch. Through this process, I gained invaluable experience across all major aspects of robotics engineering.</p>
+            <p>
+              This personal project allowed me to explore a smaller, more affordable quadruped design from scratch. Through this process, I gained invaluable experience across all major aspects of robotics engineering.
+            </p>
             <ul>
-              <li><strong>Mechanical Design:</strong> 
+              <li><strong>Mechanical Design:</strong>
                 <ul class="sub-bullet">
                   <li>Constructed a durable structure with quasi-direct drive, optimizing for backdrivability.</li>
                 </ul>
@@ -164,7 +215,9 @@
                 allowfullscreen>
               </iframe>
             </div>
-            <p>This project was the capstone of my first year, integrating multiple disciplines to create a robot capable of scanning store shelves and removing misplaced items. I led the software architecture and motion planning aspects of the project.</p>
+            <p>
+              This project was the capstone of my first year, integrating multiple disciplines to create a robot capable of scanning store shelves and removing misplaced items. I led the software architecture and motion planning aspects of the project.
+            </p>
             <ul>
               <li><strong>System Architecture:</strong>
                 <ul class="sub-bullet">
