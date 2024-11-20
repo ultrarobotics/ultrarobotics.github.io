@@ -1,3 +1,8 @@
+/* Apply border-box to all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* General Styles */
 :root {
   --primary-color: #ff6600;
@@ -6,7 +11,13 @@
   --text-color: #555555;
   --highlight-color: #ff6600;
   --gray-color: #cccccc;
+  --light-gray-color: #f0f0f0;
+  --medium-gray-color: #888888;
+  --dark-gray-color: #aaaaaa;
   --font-family: 'Roboto', sans-serif;
+
+  /* New Variable for Publications Section */
+  --light-orange-color: #fff8f1; /* Light Orange Background */
 }
 
 body {
@@ -16,12 +27,13 @@ body {
   padding: 0;
   background-color: var(--background-color);
   color: var(--secondary-color);
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header Styles */
 header {
   padding: 60px 20px;
-  background-color: #f0f0f0;
+  background-color: var(--light-gray-color); /* Replaced #f0f0f0 */
 }
 
 .header-content {
@@ -82,7 +94,7 @@ header {
 .header-text h2 {
   margin-top: 10px;
   font-size: 1.5em;
-  color: #888888;
+  color: var(--medium-gray-color); /* Replaced #888888 */
 }
 
 /* Carousel Text, Bullets, and Header Text */
@@ -99,7 +111,7 @@ header {
 /* Section Styles */
 section {
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -137,26 +149,16 @@ section ul li {
 }
 
 /* Project Slide Bullet Points */
-.project-slide ul li::before {
+.project-slide li::before {
   content: '▹';
   color: var(--primary-color);
   display: inline-block;
   width: 1em;
-  margin-left: -0.5em;
-}
-
-.project-slide ul {
-  padding-left: 1.5em;
-}
-
-.sub-bullet {
-  padding-left: 20px;
 }
 
 .sub-bullet li::before {
   content: '•';
   color: var(--primary-color);
-  margin-left: -1em;
 }
 
 /* Footer Styles */
@@ -175,6 +177,28 @@ footer {
   position: relative;
   width: 100%;
   margin: 0 auto;
+  padding: 20px;
+  background-color: var(--light-gray-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container h3 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  position: relative;
+}
+
+.carousel-container h3::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
 }
 
 .project-navigation {
@@ -182,7 +206,7 @@ footer {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .project-nav-btn {
@@ -213,6 +237,7 @@ footer {
   list-style: none;
   padding: 0;
   margin: 0 10px;
+  flex-wrap: wrap; /* Allow wrapping to prevent overflow */
 }
 
 .project-name {
@@ -227,20 +252,20 @@ footer {
 
 .project-name.active {
   background-color: var(--primary-color);
-  color: #ffffff;
+  color: var(--background-color); /* Replaced #ffffff */
 }
 
 .project-name:hover {
   background-color: var(--primary-color);
-  color: #ffffff;
+  color: var(--background-color); /* Replaced #ffffff */
 }
 
 .project-name:not(.active) {
-  color: #aaaaaa;
+  color: var(--dark-gray-color); /* Replaced #aaaaaa */
 }
 
 .project-name:not(.active):hover {
-  color: #ffffff;
+  color: var(--background-color); /* Replaced #ffffff */
 }
 
 .carousel-content {
@@ -249,20 +274,25 @@ footer {
   position: relative;
 }
 
+/* Hide all project slides by default */
 .project-slide {
   display: none;
   text-align: left;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: var(--light-gray-color); /* Replaced #f9f9f9 with background-color */
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease-in-out;
+  box-shadow: none; /* Removed box-shadow for uniformity */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
 }
 
+/* Display the active project slide */
 .project-slide.active {
   display: block;
+  opacity: 1;
 }
 
+/* Project Image Styles */
 .project-image {
   max-width: 100%;
   height: auto;
@@ -270,6 +300,7 @@ footer {
   margin: 20px 0;
 }
 
+/* Project Slide Heading */
 .project-slide h4 {
   font-size: 1.5em; /* Increased from 1.25em to 1.5em */
   margin-bottom: 15px;
@@ -282,6 +313,7 @@ footer {
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   margin: 20px 0;
+  overflow: hidden; /* Prevent iframe from overflowing */
 }
 
 .video-container iframe {
@@ -311,7 +343,7 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   /* Added minimum dimensions */
-  min-width: 250px;
+  min-width: 0; /* Prevent minimum width from causing overflow */
   min-height: 150px; /* Adjust as needed */
 }
 
@@ -320,7 +352,80 @@ footer {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive Adjustments */
+/* Loading Spinner Styles */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust as needed */
+}
+
+.loading-spinner::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 6px solid var(--gray-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for Loading Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* New Styles for Thesis Section */
+
+/* Thesis Container */
+.thesis-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between columns */
+  margin-top: 20px;
+}
+
+/* Thesis Text */
+.thesis-text {
+  flex: 1 1 60%; /* Flex-grow, flex-shrink, flex-basis */
+  min-width: 300px; /* Prevents the text from becoming too narrow */
+  margin-right: 20px;
+}
+
+.thesis-text p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.thesis-text ul {
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.thesis-text li {
+  margin-bottom: 0.5em;
+}
+
+/* Thesis Images */
+.thesis-images {
+  flex: 1 1 35%;
+  min-width: 250px;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ensure consistency */
+  gap: 15px;
+}
+
+.project-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
   .project-nav-btn {
     font-size: 1em;
@@ -381,6 +486,27 @@ footer {
     min-width: 200px;
     min-height: 120px; /* Adjust as needed */
   }
+
+  /* Adjust Thesis Container for Tablets */
+  .thesis-container {
+    flex-direction: column;
+  }
+
+  .thesis-text,
+  .thesis-images {
+    flex: 1 1 100%;
+  }
+
+  .project-gallery {
+    flex-direction: row;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    gap: 10px;
+  }
+  
+  .project-gallery img {
+    flex: 0 0 auto;
+    width: 48%; /* Adjust width for side-by-side images */
+  }
 }
 
 @media (max-width: 480px) {
@@ -424,4 +550,107 @@ footer {
     min-width: 100%;
     min-height: 150px; /* Maintain a good height even on mobile */
   }
+
+  /* Adjust Thesis Images for Mobile */
+  .thesis-images {
+    margin-top: 20px;
+  }
+
+  .project-gallery {
+    flex-direction: column;
+  }
+
+  .project-gallery img {
+    width: 100%;
+  }
+}
+
+/* Optional Hover Effect */
+.project-gallery img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+/* Loading Spinner Visibility */
+#carousel-content.loading .project-slide,
+#carousel-content.loading .project-gallery,
+#carousel-content.loading .video-container,
+#carousel-content.loading .thesis-text,
+#carousel-content.loading .thesis-images {
+  display: none;
+}
+
+#carousel-content.loading::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 6px solid var(--gray-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Publications Container Styles */
+.publications-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 40px auto; /* Added margin for spacing */
+  padding: 20px;
+  background-color: var(--light-orange-color); /* Light Orange Background */
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Publications Title */
+.publications-container h3 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  position: relative;
+}
+
+.publications-container h3::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+}
+
+/* Publications List */
+.publications-container ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: var(--text-color);
+  width: 100%;
+  max-width: 800px; /* Optional: Limit the width for better readability */
+}
+
+.publications-container ul li {
+  margin-bottom: 15px;
+}
+
+/* Publication Links */
+.publications-container ul li a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.publications-container ul li a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
 }
