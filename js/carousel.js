@@ -20,9 +20,6 @@ function showProject(index) {
   });
 
   currentProject = index;
-
-  // Scroll the active project name into view
-  projectNames[index].scrollIntoView({ behavior: 'smooth', inline: 'center' });
 }
 
 // Function to go to the previous project in the carousel
