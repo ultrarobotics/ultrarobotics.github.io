@@ -64,6 +64,25 @@ ul ul li::before {
   font-size: 1em;                       /* Adjust bullet size if necessary */
 }
 
+/* Exclude Navigation and Publications from Custom Bullets */
+
+/* Remove bullets from Navigation */
+.project-names li::before {
+  content: none; /* Remove custom bullets */
+}
+
+/* Remove bullets from Publications */
+.publications-container ul li::before {
+  content: none; /* Remove custom bullets */
+}
+
+/* Adjust padding for Navigation and Publications */
+.project-names li,
+.publications-container ul li {
+  padding-left: 8px; /* Remove space reserved for bullets */
+  margin-bottom: 10px; /* Maintain space between items */
+}
+
 /* Header Styles */
 header {
   padding: 60px 20px;
@@ -265,7 +284,7 @@ section ul li {
   background-color: transparent;
   color: var(--text-color);
   border: none;
-  padding: 10px 15px;
+  padding: 10px 10px; /* Equal padding on top/bottom and left/right */
   font-size: 1.2em;
   cursor: pointer;
   transition: color 0.2s, transform 0.2s;
@@ -284,6 +303,7 @@ section ul li {
   transform: scale(1.1);
 }
 
+/* Navigation List with No Bullets */
 .project-names {
   display: flex;
   list-style: none;
@@ -449,6 +469,17 @@ section ul li {
   margin-bottom: 15px;
 }
 
+/* Remove bullets from Publications List Items */
+.publications-container ul li::before {
+  content: none; /* Remove custom bullets */
+}
+
+/* Remove padding-left for Publications List Items */
+.publications-container ul li {
+  padding-left: 0; /* Remove space reserved for bullets */
+}
+
+/* Publications Links */
 .publications-container ul li a {
   color: var(--secondary-color);
   text-decoration: none;
@@ -538,9 +569,9 @@ footer {
   }
 
   /* 2. Fix Bullet Offsets in Projects */
-  /* Since bullets are now global, ensure mobile alignment */
-  
-  /* Adjust bullet size */
+  /* Since bullets are excluded from navigation and publications, ensure other lists align properly */
+
+  /* Adjust bullet size and position */
   ul li::before {
     font-size: 0.9em; /* Slightly smaller bullets on mobile */
     left: 0;          /* Ensure bullets are aligned to the very left */
@@ -549,6 +580,11 @@ footer {
   /* Adjust padding for list items */
   ul li {
     padding-left: 18px; /* Reduced padding to move bullets more to the left */
+  }
+
+  /* Specific adjustments for publications */
+  .publications-container ul li {
+    padding-left: 0; /* Ensure no padding left for publications */
   }
 
   /* 3. Additional Adjustments to Prevent Overflow and Ensure Responsiveness */
@@ -589,7 +625,7 @@ footer {
     margin: 0 5px;
     width: 40px;
     max-width: 40px;
-    padding: 8px;
+    padding: 8px 8px;
     /* Remove any box-shadow or background styles causing the white mist */
     background: none;
     box-shadow: none;
@@ -690,5 +726,10 @@ footer {
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
+  }
+
+  /* 6. Adjust Navigation Pill Padding on Mobile */
+  .project-names {
+    padding-left: 20px; /* Increase left padding to add space */
   }
 }
