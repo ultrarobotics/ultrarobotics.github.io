@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-/* General Styles */
+/* Root Variables */
 :root {
   --primary-color: #ff6600;
   --secondary-color: #333333;
@@ -18,6 +18,7 @@
   --light-orange-color: #fff8f1; /* Light Orange Background */
 }
 
+/* Base Styles */
 body {
   font-family: var(--font-family);
   font-size: 16px; /* Base font size for easy scaling */
@@ -57,8 +58,7 @@ header {
 }
 
 .social-media {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   text-align: center;
 }
 
@@ -95,13 +95,7 @@ header {
   color: var(--medium-gray-color);
 }
 
-/* Carousel Text, Bullets, and Header Text */
-.header-text p,
-.project-slide p,
-.project-slide ul,
-.project-slide ul li,
-.project-slide h4,
-.project-names li {
+.header-text p {
   font-size: 1em; /* Matches the base font size */
   line-height: 1.6; /* Ensures readability */
 }
@@ -146,7 +140,37 @@ section ul li {
   margin-bottom: 10px;
 }
 
-/* Project Slide Bullet Points */
+/* Project Slide Styles */
+.project-slide {
+  display: none;
+  text-align: left;
+  padding: 20px;
+  background-color: var(--light-gray-color);
+  border-radius: 12px;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.project-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.project-slide p,
+.project-slide ul,
+.project-slide ul li,
+.project-slide h4,
+.project-names li {
+  font-size: 1em; /* Matches the base font size */
+  line-height: 1.6; /* Ensures readability */
+}
+
+.project-slide h4 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
 .project-slide li::before {
   content: '▹';
   color: var(--primary-color);
@@ -159,12 +183,11 @@ section ul li {
   color: var(--primary-color);
 }
 
-/* Footer Styles */
-footer {
-  background-color: var(--secondary-color);
-  color: var(--background-color);
-  text-align: center;
-  padding: 20px 0;
+.project-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
 }
 
 /* Carousel Styles */
@@ -197,6 +220,12 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   bottom: -10px;
+}
+
+.carousel-content {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Project Navigation Styles */
@@ -276,63 +305,6 @@ footer {
   color: var(--background-color);
 }
 
-.carousel-content {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Hide all project slides by default */
-.project-slide {
-  display: none;
-  text-align: left;
-  padding: 20px;
-  background-color: var(--light-gray-color);
-  border-radius: 12px;
-  opacity: 0;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-/* Display the active project slide */
-.project-slide.active {
-  display: block;
-  opacity: 1;
-}
-
-/* Project Image Styles */
-.project-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 20px 0;
-}
-
-/* Project Slide Heading */
-.project-slide h4 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  color: var(--secondary-color);
-}
-
-/* Video Container Styles */
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  margin: 20px 0;
-  overflow: hidden;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
-}
-
 /* Project Gallery Styles */
 .project-gallery {
   display: grid;
@@ -357,27 +329,23 @@ footer {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Loading Spinner Styles */
-.loading-spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+/* Video Container Styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  margin: 20px 0;
+  overflow: hidden;
 }
 
-.loading-spinner::after {
-  content: "";
-  width: 50px;
-  height: 50px;
-  border: 6px solid var(--gray-color);
-  border-top-color: var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-/* Animation for Loading Spinner */
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
 }
 
 /* Thesis Container */
@@ -469,9 +437,40 @@ footer {
   text-decoration: underline;
 }
 
+/* Footer Styles */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Loading Spinner Styles */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.loading-spinner::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 6px solid var(--gray-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for Loading Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Responsive Design */
 
-/* Tablets and below */
+/* Tablets and Below */
 @media (max-width: 1024px) {
   .project-nav-btn {
     font-size: 1em;
@@ -485,172 +484,62 @@ footer {
   }
 }
 
-/* Mobile Devices */
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-  }
-
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profile-image,
-  .header-text {
-    margin: 0;
-  }
-
-  .header-text h1 {
-    font-size: 2.5em;
-  }
-
-  .project-nav-btn {
-    font-size: 1em;
-    padding: 8px 12px;
-  }
-
-  .project-nav-btn i {
-    font-size: 1.3em;
-  }
-
-  .project-name {
-    margin: 0 8px;
-    padding: 6px 10px;
-    font-size: 0.85em;
-  }
-
-  .project-slide h4 {
-    font-size: 1.3em;
-  }
-
-  .project-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .project-gallery img {
-    min-width: 200px;
-    min-height: 120px;
-  }
-
-  .thesis-container {
-    flex-direction: column;
-  }
-
-  .thesis-text,
-  .thesis-images {
-    flex: 1 1 100%;
-  }
-
-  .project-gallery {
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 10px;
-  }
-  
-  .project-gallery img {
-    flex: 0 0 auto;
-    width: 48%;
-  }
-}
-
 /* Mobile Phones */
 @media (max-width: 480px) {
-  /* Navigation Menu Layout - Revamped */
-  .project-navigation {
-    flex-direction: row;
-    align-items: center;
+  /* 1. Remove White Space on Sides for Projects and Publications */
+  .project-gallery,
+  .publications-container,
+  .project-slide,
+  .thesis-container,
+  .thesis-images,
+  .thesis-text {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
     width: 100%;
+    max-width: none;
   }
 
-  /* Previous and Next Buttons */
-  .project-nav-btn {
-    margin: 0 5px;
-    width: 40px;
-    max-width: 40px;
-    padding: 8px;
+  /* Add Padding to Publications Container */
+  .publications-container {
+    padding-left: 15px; /* Added padding */
+    padding-right: 15px; /* Added padding */
   }
 
-  .project-nav-btn i {
-    font-size: 1.2em;
+  /* Ensure no horizontal padding/margin on parent containers */
+  .carousel-container,
+  section {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  /* Project Names - Horizontally Scrollable */
-  .project-names {
-    flex: 1;
-    margin: 0 5px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    position: relative;
-  }
-
-  .project-names::before,
-  .project-names::after {
-    content: '';
-    flex: 0 0 20px; /* Add spacing on both ends */
-  }
-
-  .project-names::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
-  }
-
-  /* Project Name Items */
-  .project-name {
-    margin: 0 5px;
-    padding: 8px 12px;
-    font-size: 0.8em;
-  }
-
-  /* Visual Scroll Indicators */
-  .project-names {
-    position: relative;
-  }
-
-  .project-names::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to right, var(--light-gray-color), transparent);
-    pointer-events: none;
-  }
-
-  .project-names::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to left, var(--light-gray-color), transparent);
-    pointer-events: none;
-  }
-
-  /* Ensure Project Navigation Doesn't Overflow */
-  .project-navigation {
-    overflow: hidden;
-  }
-
-  /* Bullet Padding and Text Width */
+  /* 2. Fix Bullet Offsets in Projects */
   .project-slide ul,
   .publications-container ul {
-    padding-left: 20px;
+    list-style: none; /* Remove default bullets */
+    padding-left: 0; /* Remove default padding */
+    margin-left: 0; /* Remove default margin */
   }
 
   .project-slide li,
   .publications-container ul li {
-    margin-bottom: 10px;
+    position: relative; /* For positioning the custom bullet */
+    padding-left: 20px; /* Space for the custom bullet */
+    margin-bottom: 10px; /* Space between list items */
   }
 
   .project-slide li::before,
   .publications-container ul li::before {
-    margin-right: 8px;
+    content: '▹'; /* Custom bullet symbol */
+    color: var(--primary-color);
+    position: absolute;
+    left: 0; /* Align bullet to the left */
+    top: 0;
+    transform: translateY(0.2em); /* Fine-tune vertical alignment */
   }
 
-  /* Image Responsiveness */
+  /* 3. Additional Adjustments to Prevent Overflow and Ensure Responsiveness */
   .project-gallery {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -664,18 +553,6 @@ footer {
     min-height: auto;
   }
 
-  /* Video Padding and Size */
-  .video-container {
-    width: 100%;
-    padding-bottom: 56.25%;
-    margin: 10px 0;
-  }
-
-  .video-container iframe {
-    border-radius: 8px;
-  }
-
-  /* Thesis Container Adjustments */
   .thesis-container {
     flex-direction: column;
     padding: 0 10px;
@@ -686,11 +563,81 @@ footer {
     padding: 0 10px;
   }
 
-  /* Additional Adjustments */
+  /* 4. Ensure Project Navigation Doesn't Overflow */
+  .project-navigation {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    overflow: hidden; /* Prevent overflow */
+    padding: 0 5px; /* Minimal padding */
+  }
+
+  /* Adjust project-nav-btn for mobile */
+  .project-nav-btn {
+    margin: 0 5px;
+    width: 40px;
+    max-width: 40px;
+    padding: 8px;
+    /* Remove any box-shadow or background styles causing the white mist */
+    background: none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .project-nav-btn i {
+    font-size: 1.2em;
+  }
+
+  /* Adjust project-names for horizontal scrolling with visual indicators */
+  .project-names {
+    flex: 1;
+    margin: 0 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    position: relative;
+    padding: 0 20px; /* Ensure space for scroll indicators */
+  }
+
+  /* Disable gradient overlays to remove the mist */
+  .project-names::before,
+  .project-names::after {
+    display: none; /* Hides the mist */
+  }
+
+  /* Remove custom bullet from publications section */
+  .publications-container ul li::before {
+    display: none; /* Hides the bullet symbol */
+  }
+
+  .publications-container ul li {
+    padding-left: 0; /* Removes the space reserved for the bullet */
+  }
+
+  .project-name {
+    margin: 0 5px;
+    padding: 8px 12px;
+    font-size: 0.8em;
+  }
+
+  /* Adjust thesis-images margin */
+  .thesis-images {
+    margin-top: 20px;
+  }
+
+  /* Remove any remaining padding/margin that could cause white space */
+  .project-navigation,
+  .project-names {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 5. Ensure Body Doesn't Allow Horizontal Scroll */
   body {
     font-size: 14px;
   }
 
+  /* Additional Adjustments */
   .header-text h1 {
     font-size: 2em;
   }
@@ -709,7 +656,6 @@ footer {
   }
 
   .project-name {
-    margin: 0 5px;
     padding: 5px 8px;
     font-size: 0.8em;
   }
@@ -718,54 +664,28 @@ footer {
     font-size: 1.2em;
   }
 
-  .project-gallery {
-    grid-template-columns: 1fr;
+  /* Loading Spinner Adjustments (if necessary) */
+  #carousel-content.loading .project-slide,
+  #carousel-content.loading .project-gallery,
+  #carousel-content.loading .video-container,
+  #carousel-content.loading .thesis-text,
+  #carousel-content.loading .thesis-images {
+    display: none;
   }
 
-  .project-gallery img {
-    min-width: 100%;
-    min-height: 150px;
-  }
-
-  .thesis-images {
-    margin-top: 20px;
-  }
-
-  .project-gallery {
-    flex-direction: column;
-  }
-
-  .project-gallery img {
-    width: 100%;
+  #carousel-content.loading::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid var(--gray-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
   }
 }
 
-/* Optional Hover Effect */
-.project-gallery img:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s;
-}
-
-/* Loading Spinner Visibility */
-#carousel-content.loading .project-slide,
-#carousel-content.loading .project-gallery,
-#carousel-content.loading .video-container,
-#carousel-content.loading .thesis-text,
-#carousel-content.loading .thesis-images {
-  display: none;
-}
-
-#carousel-content.loading::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 6px solid var(--gray-color);
-  border-top-color: var(--primary-color);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-}
