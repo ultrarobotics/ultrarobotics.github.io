@@ -29,6 +29,41 @@ body {
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* Global List Styles */
+ul {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;  /* Remove default padding */
+  margin: 0;        /* Remove default margin */
+}
+
+ul li {
+  position: relative;        /* For positioning the custom bullet */
+  padding-left: 20px;        /* Space for the custom bullet */
+  margin-bottom: 10px;       /* Space between list items */
+}
+
+/* Custom Bullet for All List Items */
+ul li::before {
+  content: '▹';                         /* Custom bullet symbol */
+  color: var(--primary-color);          /* Bullet color */
+  position: absolute;                   /* Position the bullet */
+  left: 0;                              /* Align bullet to the left */
+  top: 0;                               /* Align bullet vertically */
+  transform: translateY(0.2em);         /* Fine-tune vertical alignment */
+  font-size: 1em;                       /* Adjust bullet size if necessary */
+}
+
+/* Sub-Bullets for Nested Lists */
+ul ul li::before {
+  content: '•';                         /* Different bullet symbol */
+  color: var(--primary-color);          /* Bullet color */
+  position: absolute;                   /* Position the bullet */
+  left: 0;                              /* Align bullet to the left */
+  top: 0;                               /* Align bullet vertically */
+  transform: translateY(0.2em);         /* Fine-tune vertical alignment */
+  font-size: 1em;                       /* Adjust bullet size if necessary */
+}
+
 /* Header Styles */
 header {
   padding: 60px 20px;
@@ -169,18 +204,6 @@ section ul li {
   font-size: 1.5em;
   margin-bottom: 15px;
   color: var(--secondary-color);
-}
-
-.project-slide li::before {
-  content: '▹';
-  color: var(--primary-color);
-  display: inline-block;
-  width: 1em;
-}
-
-.sub-bullet li::before {
-  content: '•';
-  color: var(--primary-color);
 }
 
 .project-image {
@@ -515,28 +538,17 @@ footer {
   }
 
   /* 2. Fix Bullet Offsets in Projects */
-  .project-slide ul,
-  .publications-container ul {
-    list-style: none; /* Remove default bullets */
-    padding-left: 0; /* Remove default padding */
-    margin-left: 0; /* Remove default margin */
+  /* Since bullets are now global, ensure mobile alignment */
+  
+  /* Adjust bullet size */
+  ul li::before {
+    font-size: 0.9em; /* Slightly smaller bullets on mobile */
+    left: 0;          /* Ensure bullets are aligned to the very left */
   }
 
-  .project-slide li,
-  .publications-container ul li {
-    position: relative; /* For positioning the custom bullet */
-    padding-left: 20px; /* Space for the custom bullet */
-    margin-bottom: 10px; /* Space between list items */
-  }
-
-  .project-slide li::before,
-  .publications-container ul li::before {
-    content: '▹'; /* Custom bullet symbol */
-    color: var(--primary-color);
-    position: absolute;
-    left: 0; /* Align bullet to the left */
-    top: 0;
-    transform: translateY(0.2em); /* Fine-tune vertical alignment */
+  /* Adjust padding for list items */
+  ul li {
+    padding-left: 18px; /* Reduced padding to move bullets more to the left */
   }
 
   /* 3. Additional Adjustments to Prevent Overflow and Ensure Responsiveness */
@@ -605,15 +617,7 @@ footer {
     display: none; /* Hides the mist */
   }
 
-  /* Remove custom bullet from publications section */
-  .publications-container ul li::before {
-    display: none; /* Hides the bullet symbol */
-  }
-
-  .publications-container ul li {
-    padding-left: 0; /* Removes the space reserved for the bullet */
-  }
-
+  /* Adjust project-name styles */
   .project-name {
     margin: 0 5px;
     padding: 8px 12px;
@@ -688,4 +692,3 @@ footer {
     animation: spin 1s linear infinite;
   }
 }
-
