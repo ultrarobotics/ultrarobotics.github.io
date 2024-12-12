@@ -49,7 +49,6 @@ ul li::before {
   position: absolute;                   /* Position the bullet */
   left: 0;                              /* Align bullet to the left */
   top: 0;                               /* Align bullet vertically */
-  transform: translateY(0.2em);         /* Fine-tune vertical alignment */
   font-size: 1em;                       /* Adjust bullet size if necessary */
 }
 
@@ -59,8 +58,7 @@ ul ul li::before {
   color: var(--primary-color);          /* Bullet color */
   position: absolute;                   /* Position the bullet */
   left: 0;                              /* Align bullet to the left */
-  top: 0;                               /* Align bullet vertically */
-  transform: translateY(0.2em);         /* Fine-tune vertical alignment */
+  top: 0;                               /* Align bullet vertically */ 
   font-size: 1em;                       /* Adjust bullet size if necessary */
 }
 
