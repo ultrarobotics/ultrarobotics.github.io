@@ -731,3 +731,9 @@ footer {
     padding-left: 20px; /* Increase left padding to add space */
   }
 }
+
+/* Subtitle for Project Date */
+.project-date {
+  color: var(--medium-gray-color); /* Uses the defined dark gray color */
+  font-style: italic;            /* Optional: Makes the subtitle italic */
+}

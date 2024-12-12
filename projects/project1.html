@@ -14,12 +14,13 @@
   <!-- Thesis Content with Images Side by Side -->
   <div class="thesis-container">
     <div class="thesis-text">
-      <h4>MSc Thesis: Co-design of Quadruped Using Reinforcement Learning (in progress)</h4>
+      <h4>MSc Thesis: Co-design of a Quadruped using Reinforcement Learning (in progress)</h4>
+      <p class="project-date">11-2023 – Present</p>
       <p>
         During my master’s studies and personal projects building robots, I encountered the challenges of designing robots that perform effectively in real-world scenarios. These experiences inspired me to focus my self-proposed thesis on learning-based co-design. Co-design is an approach that optimizes a robot’s physical design and motion simultaneously, simplifying the process of creating high-performance robotic systems.
       </p>
       <p>
-        In my thesis, I made a co-design algorithm using <strong> Reinforcement Learning (RL) </strong> and applied it to a quadruped robot. I also build a modular hardware platform <strong>from scratch</strong> to implement the optimzed designs on.
+        In my thesis, I developed a co-design algorithm using <strong> Reinforcement Learning (RL) </strong> and applied it to a quadruped robot. I also built a modular hardware platform <strong>from scratch</strong> to implement the optimzed designs on.
       </p>
     
       <ul>
@@ -28,21 +29,21 @@
             <li>Defined platform requirements with a focus on modularity, torque-controlled motors, and cost-efficiency.</li>
             <li>Selected electronic and mechanical components, where I discussed and got discounts from suppliers.</li>
             <li>Designed the robot with modularity and manufacturability in mind to easily test various co-optimized designs.</li>
-            <li>Created the CAD model in SolidWorks</li>
+            <li>Created the CAD model in SolidWorks.</li>
             <li>Prototyped subcomponents such as the legs, compute module, and body layout.</li>
           </ul>
         </li>
         <li><strong>Building the Robot:</strong>
           <ul class="sub-bullet">
             <li>Fabricated all parts using my Creality CR-10 3D printer.</li>
-            <li>Hand-crafted the wires by using soldering tools.</li>
+            <li>Handcrafted the wires by using soldering tools.</li>
             <li>Tested electronics using equipment such as a power supply, multimeter, and oscilloscope.</li>
           </ul>
         </li>
         <li><strong>Developing Low-Level Software:</strong>
           <ul class="sub-bullet">
             <li>Enhanced C++ packages to integrate with my custom software stack for I²C communication with the MPU6050 IMU in DMP mode, reducing computation on the NVIDIA Jetson platform.</li>
-            <li>Built asynchronous Python-based bi-directional CAN communication for Xiaomi Cybergears motors, with the help of a technical documentation from the Chinese manual.</li>
+            <li>Built asynchronous Python-based bi-directional CAN communication for Xiaomi Cybergears motors, with the help of technical documentation from the Chinese manual.</li>
             <li>Configured NVIDIA JetPack with all necessary drivers and packages.</li>
             <li>Automated the initialization of the IMU and PEAK CAN devices using Linux services and bash scripts.</li>
           </ul>
@@ -63,7 +64,7 @@
         </li>
         <li><strong>Setting Up Reinforcement Learning Training Infrastructure:</strong>
           <ul class="sub-bullet">
-            <li>Streamlined the training process with RL training and deployment infrastucture.</li>
+            <li>Streamlined the training process with RL training and deployment infrastructure.</li>
             <li>Created configuration files for training and evaluation workflows.</li>
             <li>Automated tools for monitoring training progress through automated plots.</li>
             <li>Conducted sim-to-sim policy transfers to test locomotion via a gamepad.</li>
@@ -75,7 +76,7 @@
             <li>Improved sim-to-real transfer using domain randomization, sensor noise injection, and disturbance modeling, modelled from real-world data.</li>
             <li>Used similar style configuration files on the robot to quickly test different policies with different configurations.</li>
             <li>Leveraged TensorRT and PyCUDA to enable efficient neural network inference on the NVIDIA Jetson platform.</li>
-            <li>Created a wireless connection via TCP between laptop and robot, that sends the controller command to robot, and where the robot shares its state to the laptop where all data is logged.</li>
+            <li>Created a wireless connection via TCP between the laptop and the robot, that sends the controller command to robot, and where the robot shares its state to the laptop where all data is logged.</li>
           </ul>
         </li>
         <li><strong>Results (further details to be announced):</strong>
