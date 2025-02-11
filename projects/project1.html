@@ -14,13 +14,13 @@
   <!-- Thesis Content with Images Side by Side -->
   <div class="thesis-container">
     <div class="thesis-text">
-      <h4>MSc Thesis: Co-design of a Quadruped using Reinforcement Learning (in progress)</h4>
-      <p class="project-date">11-2023 – Present</p>
+      <h4>MSc Thesis: Co-design of a Quadruped using Reinforcement Learning</h4>
+      <p class="project-date">11-2023 – 01-2025</p>
       <p>
-        During my master’s studies and personal projects building robots, I encountered the challenges of designing robots that perform effectively in real-world scenarios. These experiences inspired me to focus my self-proposed thesis on learning-based co-design. Co-design is an approach that optimizes a robot’s physical design and motion simultaneously, simplifying the process of creating high-performance robotic systems.
+        During my personal hobby projects were I build robots, I encountered the challenges of designing designing physical robots and their motions so that they can perform effectively in real-world scenarios. These experiences inspired me to pursue a thesis on learning-based co-design. Co-design is an approach that optimizes a robot’s physical design and motion simultaneously, thereby simplifying the process of creating high-performance robotic systems.
       </p>
       <p>
-        In my thesis, I developed a co-design algorithm using <strong> Reinforcement Learning (RL) </strong> and applied it to a quadruped robot. I also built a modular hardware platform <strong>from scratch</strong> to implement the optimzed designs on.
+        In my thesis, I developed a co-design algorithm using <strong> Reinforcement Learning (RL) </strong> and applied it to a quadruped robot. I also built a modular hardware platform <strong>from scratch</strong> to implement the optimzed designs on. Below are some of the important steps I took during the project:
       </p>
     
       <ul>
@@ -46,13 +46,14 @@
             <li>Built asynchronous Python-based bi-directional CAN communication for Xiaomi Cybergears motors, with the help of technical documentation from the Chinese manual.</li>
             <li>Configured NVIDIA JetPack with all necessary drivers and packages.</li>
             <li>Automated the initialization of the IMU and PEAK CAN devices using Linux services and bash scripts.</li>
+            <li>Implemented a state machine for robot start-up, calibration, walking and sitting states.</li>
           </ul>
         </li>
         <li><strong>Simulating the Robot:</strong>
           <ul class="sub-bullet">
             <li>Exported the robot’s CAD design from SolidWorks to URDF and converted it to MJCF for simulation.</li>
-            <li>Created a realistic robot model by measuring part weights and consulting motor datasheets.</li>
-            <li>Developed code functions in the simulator to easily select designs within the modular design space.</li>
+            <li>Created a realistic robot model by measuring part weights and extracting details from motor datasheets.</li>
+            <li>Developed functions in the simulator to easily select designs within the modular design space.</li>
           </ul>
         </li>
         <li><strong>Creating a Reinforcement Learning-Based Co-Design Algorithm:</strong>
@@ -68,7 +69,7 @@
             <li>Created configuration files for training and evaluation workflows.</li>
             <li>Automated tools for monitoring training progress through automated plots.</li>
             <li>Conducted sim-to-sim policy transfers to test locomotion via a gamepad.</li>
-            <li>Built scripts to convert trained JAX models to PyTorch and ONNX formats for use in simulation and on the real robot.</li>
+            <li>Built scripts to convert trained JAX models to NVIDIA TensorRT format (via PyTorch and ONNX) for efficient inference on the real robot and simulation environments.</li>
           </ul>
         </li>
         <li><strong>Sim-to-Real: Transferring Policies to the Real Robot:</strong>
@@ -77,11 +78,12 @@
             <li>Used similar style configuration files on the robot to quickly test different policies with different configurations.</li>
             <li>Leveraged TensorRT and PyCUDA to enable efficient neural network inference on the NVIDIA Jetson platform.</li>
             <li>Created a wireless connection via TCP between the laptop and the robot, that sends the controller command to robot, and where the robot shares its state to the laptop where all data is logged.</li>
+            <li>Programmed an autopilot mode that automatically sends commands on fixed sequences to ensure that testing is fair between designs.</li>
           </ul>
         </li>
         <li><strong>Results (further details to be announced):</strong>
           <ul class="sub-bullet">
-            <li>Early tests show that co-optimized designs are more efficient in locomotion compared to nominal designs.</li>
+            <li>Experiments show that co-optimized designs are significantly efficient in locomotion compared to nominal designs for various tasks.</li>
           </ul>
         </li>
       </ul>
