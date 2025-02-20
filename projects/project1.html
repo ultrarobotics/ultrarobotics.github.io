@@ -14,83 +14,75 @@
   <!-- Thesis Content with Images Side by Side -->
   <div class="thesis-container">
     <div class="thesis-text">
-      <h4>MSc Thesis: Co-design of a Quadruped using Reinforcement Learning</h4>
-      <p class="project-date">11-2023 – 01-2025</p>
+      <h4>MSc Thesis: Co-Design of a Quadruped using Reinforcement Learning</h4>
+      <p class="project-date">Duration: November 2023 – January 2025</p>
       <p>
-        During my personal hobby projects were I build robots, I encountered the challenges of designing designing physical robots and their motions so that they can perform effectively in real-world scenarios. These experiences inspired me to pursue a thesis on learning-based co-design. Co-design is an approach that optimizes a robot’s physical design and motion simultaneously, thereby simplifying the process of creating high-performance robotic systems.
+        Through my experience developing robots as hobby projects, I encountered the challenges of both designing the physical hardware of a robot and controlling it effectively. What makes this challenging is the intricate relationship between a robot’s design and its control strategy. For instance, a quadruped with shorter legs must take quicker steps to match the speed of a longer-legged counterpart—but which design yields optimal performance for a given task?
       </p>
       <p>
-        In my thesis, I developed a co-design algorithm using <strong> Reinforcement Learning (RL) </strong> and applied it to a quadruped robot. I also built a modular hardware platform <strong>from scratch</strong> to implement the optimzed designs on. Below are some of the important steps I took during the project:
+        My thesis explores <strong>learning-based co-design</strong>, an approach that simultaneously optimizes a robot’s hardware and control policies. Specifically, I develop a co-design algorithm integrating <strong>Reinforcement Learning (RL) and Bayesian Optimization (BO)</strong> to generate efficient quadruped designs and motions. To validate these designs, I built <strong>a modular quadruped from scratch</strong> and addressed the <strong>sim-to-real</strong> transfer challenge, ensuring that both the learned locomotion policies and co-optimized designs function effectively in real-world conditions.
       </p>
-    
+      <p>
+        Currently, I am preparing a paper based on this work. Below are key aspects of the project:
+      </p>
+
+      <h5>Hardware Development: Designing and Building the Robot</h5>
       <ul>
-        <li><strong>Designing the Robot:</strong>
-          <ul class="sub-bullet">
-            <li>Defined platform requirements with a focus on modularity, torque-controlled motors, and cost-efficiency.</li>
-            <li>Selected electronic and mechanical components, where I discussed and got discounts from suppliers.</li>
-            <li>Designed the robot with modularity and manufacturability in mind to easily test various co-optimized designs.</li>
-            <li>Created the CAD model in SolidWorks.</li>
-            <li>Prototyped subcomponents such as the legs, compute module, and body layout.</li>
-          </ul>
-        </li>
-        <li><strong>Building the Robot:</strong>
-          <ul class="sub-bullet">
-            <li>Fabricated all parts using my Creality CR-10 3D printer.</li>
-            <li>Handcrafted the wires by using soldering tools.</li>
-            <li>Tested electronics using equipment such as a power supply, multimeter, and oscilloscope.</li>
-          </ul>
-        </li>
-        <li><strong>Developing Low-Level Software:</strong>
-          <ul class="sub-bullet">
-            <li>Enhanced C++ packages to integrate with my custom software stack for I²C communication with the MPU6050 IMU in DMP mode, reducing computation on the NVIDIA Jetson platform.</li>
-            <li>Built asynchronous Python-based bi-directional CAN communication for Xiaomi Cybergears motors, with the help of technical documentation from the Chinese manual.</li>
-            <li>Configured NVIDIA JetPack with all necessary drivers and packages.</li>
-            <li>Automated the initialization of the IMU and PEAK CAN devices using Linux services and bash scripts.</li>
-            <li>Implemented a state machine for robot start-up, calibration, walking and sitting states.</li>
-          </ul>
-        </li>
-        <li><strong>Simulating the Robot:</strong>
-          <ul class="sub-bullet">
-            <li>Exported the robot’s CAD design from SolidWorks to URDF and converted it to MJCF for simulation.</li>
-            <li>Created a realistic robot model by measuring part weights and extracting details from motor datasheets.</li>
-            <li>Developed functions in the simulator to easily select designs within the modular design space.</li>
-          </ul>
-        </li>
-        <li><strong>Creating a Reinforcement Learning-Based Co-Design Algorithm:</strong>
-          <ul class="sub-bullet">
-            <li>Built a parallelizable RL environment using MuJoCo (MJX) and Brax.</li>
-            <li>Trained locomotion policies using Brax’s JAX-based PPO algorithm for flat and rough terrains, exploring gaits such as trotting and pronking.</li>
-            <li>Designed a co-design algorithm that uses the RL locomotion policies (further details to be announced).</li>
-          </ul>
-        </li>
-        <li><strong>Setting Up Reinforcement Learning Training Infrastructure:</strong>
-          <ul class="sub-bullet">
-            <li>Streamlined the training process with RL training and deployment infrastructure.</li>
-            <li>Created configuration files for training and evaluation workflows.</li>
-            <li>Automated tools for monitoring training progress through automated plots.</li>
-            <li>Conducted sim-to-sim policy transfers to test locomotion via a gamepad.</li>
-            <li>Built scripts to convert trained JAX models to NVIDIA TensorRT format (via PyTorch and ONNX) for efficient inference on the real robot and simulation environments.</li>
-          </ul>
-        </li>
-        <li><strong>Sim-to-Real: Transferring Policies to the Real Robot:</strong>
-          <ul class="sub-bullet">
-            <li>Improved sim-to-real transfer using domain randomization, sensor noise injection, and disturbance modeling, modelled from real-world data.</li>
-            <li>Used similar style configuration files on the robot to quickly test different policies with different configurations.</li>
-            <li>Leveraged TensorRT and PyCUDA to enable efficient neural network inference on the NVIDIA Jetson platform.</li>
-            <li>Created a wireless connection via TCP between the laptop and the robot, that sends the controller command to robot, and where the robot shares its state to the laptop where all data is logged.</li>
-            <li>Programmed an autopilot mode that automatically sends commands on fixed sequences to ensure that testing is fair between designs.</li>
-          </ul>
-        </li>
-        <li><strong>Results (further details to be announced):</strong>
-          <ul class="sub-bullet">
-            <li>Experiments show that co-optimized designs are significantly efficient in locomotion compared to nominal designs for various tasks.</li>
-          </ul>
-        </li>
+        <li>Defined platform requirements focusing on modularity, torque-controlled motors, and cost-efficiency.</li>
+        <li>Selected electronic and mechanical components while negotiating supplier discounts.</li>
+        <li><strong>Designed a modular quadruped from scratch</strong>, ensuring ease of manufacturability and assembly.</li>
+        <li>Used SolidWorks to design parts and fabricated them using a Creality CR-10 3D printer and handcrafted wiring using soldering tools.</li>
+        <li>Prototyped and tested key components, including legs, compute modules, and body layout.</li>
+        <li>Assembled and tested electronics with power supplies, multimeters, and oscilloscopes.</li>
       </ul>
-      
-      <p>
-        Throughout this project, I combined my passion for designing robots with my interest in learning-based optimization, resulting in a modular platform that integrates co-optimized designs in the real-world. My approach exemplifies how a synergy between hardware and AI algorithms can push the boundaries of robotic performance in complex environments.
-      </p>
+
+      <h5>Software Development: Low-Level Control & System Integration</h5>
+      <ul>
+        <li>Modified C++ drivers for I²C communication with an MPU6050 IMU (DMP mode) to reduce computational load on the <strong>NVIDIA Jetson</strong>.</li>
+        <li>Built a Python-based asynchronous bi-directional CAN communication system for Xiaomi Cybergears motors.</li>
+        <li>Integrated TensorRT and PyCUDA for high-efficiency neural network inference on the NVIDIA Jetson platform.</li>
+        <li>Automated system initialization via Linux services and bash scripts for IMU and PEAK CAN devices.</li>
+        <li>Designed a state machine for robot startup, calibration, locomotion, and sitting states.</li>
+      </ul>
+
+      <h5>Simulation & Reinforcement Learning-Based Co-Design</h5>
+      <ul>
+        <li>Converted the CAD model from SolidWorks → URDF → MJCF for simulation in MuJoCo (MJX).</li>
+        <li>Created a realistic robot model by measuring part weights and using motor specifications.</li>
+        <li><strong>Developed an RL training environment for parallelized simulations, enabling quick policy learning using MuJoCo (MJX) and Brax.</strong></li>
+        <li>Trained locomotion policies using Brax’s JAX-based PPO algorithm, exploring gaits such as trotting and pronking on both flat and rough terrains.</li>
+        <li>Implemented a co-design algorithm that jointly optimizes the robot’s physical design and motion using RL policies and Bayesian Optimization.</li>
+      </ul>
+
+      <h5>Reinforcement Learning Training Infrastructure</h5>
+      <ul>
+        <li><strong>Streamlined RL training and deployment with automated pipelines.</strong></li>
+        <li>Created configuration files to standardize training and evaluation workflows.</li>
+        <li>Built monitoring tools to track training progress and policy performance.</li>
+        <li>Conducted sim-to-sim policy transfers for testing locomotion policies via a gamepad.</li>
+        <li>Developed conversion scripts to export trained JAX models to NVIDIA TensorRT (via PyTorch & ONNX) for real-time deployment.</li>
+      </ul>
+
+      <h5>Sim-to-Real: Deploying Policies on the Physical Robot</h5>
+      <ul>
+        <li><strong>Improved sim-to-real transfer using domain randomization, sensor noise injection, and disturbance modeling.</strong></li>
+        <li>Designed configuration files on the robot for rapid deployment of different policies.</li>
+        <li>Established a wireless TCP communication link between the robot and a laptop for real-time control and logging.</li>
+        <li>Built a UI for real-time visualization of robot state data, enabling faster debugging of sim-to-real inconsistencies.</li>
+        <li>Developed an autopilot mode that executes fixed command sequences for controlled and repeatable experiments.</li>
+      </ul>
+
+      <h5>Results & Key Insights</h5>
+      <ul>
+        <li><strong>Experiments demonstrate that co-optimized designs significantly outperform nominal designs in locomotion efficiency across various tasks in the real-world.</strong></li>
+        <li>Further details will be presented in the forthcoming publication.</li>
+      </ul>
+
+      <h5>Closing Thoughts</h5>
+      <ul>
+        <li>My thesis combines <strong>my passions for robot design and AI-driven control</strong>, demonstrating how co-design methodologies can push the boundaries of robotic performance. By integrating hardware optimization with machine learning, my work contributes to the future of performant robotic systems.
+        <li>I am currently preparing a research paper based on this work. <strong>If you're interested in discussing co-design, reinforcement learning, or legged locomotion, feel free to send me a message on LinkedIn! </strong></li>
+      </ul>
     </div>
     <div class="thesis-images">
       <div class="project-gallery">

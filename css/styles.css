@@ -223,6 +223,12 @@ section ul li {
   color: var(--secondary-color);
 }
 
+.project-slide h5 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+}
+
 .project-image {
   max-width: 100%;
   height: auto;
@@ -700,6 +706,10 @@ footer {
 
   .project-slide h4 {
     font-size: 1.2em;
+  }
+
+  .project-slide h5 {
+    font-size: 1.0em;
   }
 
   /* Loading Spinner Adjustments (if necessary) */
