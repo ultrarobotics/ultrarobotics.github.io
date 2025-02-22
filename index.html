@@ -56,17 +56,25 @@
         <!-- Projects Title -->
         <h3>Projects</h3>
         
-        <!-- Project Navigation -->
+        <!-- TOP NAVIGATION -->
         <div class="project-navigation">
-          <button class="project-nav-btn" onclick="prevProject()" aria-label="Previous Project">
+          <button
+            class="project-nav-btn"
+            data-direction="prev"
+            aria-label="Previous Project"
+          >
             <i class="fas fa-chevron-left"></i>
           </button>
           <ul class="project-names">
-            <li class="project-name active" data-index="0">MSc Thesis</li>
+            <li class="project-name" data-index="0">MSc Thesis</li>
             <li class="project-name" data-index="1">Hobby Quadruped</li>
             <li class="project-name" data-index="2">Course Projects</li>
           </ul>
-          <button class="project-nav-btn" onclick="nextProject()" aria-label="Next Project">
+          <button
+            class="project-nav-btn"
+            data-direction="next"
+            aria-label="Next Project"
+          >
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -76,20 +84,28 @@
           <!-- Project slides will be loaded here dynamically -->
         </div>
 
-      <!-- Bottom Navigation Buttons (Same as Top) -->
-      <div class="project-navigation">
-        <button class="project-nav-btn" onclick="prevProject()" aria-label="Previous Project">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <ul class="project-names">
-          <li class="project-name active" data-index="0">MSc Thesis</li>
-          <li class="project-name" data-index="1">Hobby Quadruped</li>
-          <li class="project-name" data-index="2">Course Projects</li>
-        </ul>
-        <button class="project-nav-btn" onclick="nextProject()" aria-label="Next Project">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
+        <!-- BOTTOM NAVIGATION -->
+        <div class="project-navigation">
+          <button
+            class="project-nav-btn"
+            data-direction="prev"
+            aria-label="Previous Project"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <ul class="project-names">
+            <li class="project-name" data-index="0">MSc Thesis</li>
+            <li class="project-name" data-index="1">Hobby Quadruped</li>
+            <li class="project-name" data-index="2">Course Projects</li>
+          </ul>
+          <button
+            class="project-nav-btn"
+            data-direction="next"
+            aria-label="Next Project"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div> 
 
     </section>
 

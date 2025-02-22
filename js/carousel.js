@@ -1,83 +1,68 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projectFiles = ["project1.html", "project2.html", "project3.html"];
-  const carouselContent = document.getElementById("carousel-content");
   let currentIndex = 0;
 
-  // Function to update active classes for all navigation items.
-  // This queries the DOM fresh for both the top and bottom navigation lists.
-  const updateNavigation = (index) => {
-    const navLists = document.querySelectorAll('.project-names');
-    navLists.forEach(list => {
-      const items = list.querySelectorAll('.project-name');
-      items.forEach(item => {
-        const idx = parseInt(item.getAttribute('data-index'), 10);
-        if (idx === index) {
-          item.classList.add('active');
-        } else {
-          item.classList.remove('active');
-        }
-      });
-    });
-  };
+  const carouselSection = document.getElementById("projects-carousel");
+  const carouselContent = document.getElementById("carousel-content");
 
-  // Function to load a specific project and update navigation.
-  const loadProject = (index) => {
-    if (index < 0 || index >= projectFiles.length) return;
+  // Load the project partial into #carousel-content
+  function loadProject(index) {
+    // Wrap around if out of range
+    if (index < 0) index = projectFiles.length - 1;
+    if (index >= projectFiles.length) index = 0;
+
     fetch(`projects/${projectFiles[index]}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.text();
       })
-      .then(data => {
-        carouselContent.innerHTML = data;
+      .then((html) => {
         currentIndex = index;
-        // Use a slight delay so that any re-rendered nav lists are present
-        setTimeout(() => updateNavigation(index), 50);
-        initializeCarouselFeatures();
+        carouselContent.innerHTML = html;
+        updateNavigation(); // highlight the correct nav item
       })
-      .catch(error => {
-        console.error('Error loading project:', error);
+      .catch((err) => {
+        console.error("Error loading project:", err);
         carouselContent.innerHTML = "<p>Failed to load project content.</p>";
       });
-  };
-
-  // Use event delegation on each .project-navigation container so that clicks on any nav item update both sets.
-  const navContainers = document.querySelectorAll('.project-navigation');
-  navContainers.forEach(container => {
-    container.addEventListener('click', (event) => {
-      const target = event.target.closest('.project-name');
-      if (target) {
-        const idx = parseInt(target.getAttribute('data-index'), 10);
-        loadProject(idx);
-      }
-    });
-  });
-
-  // Previous Project button handler.
-  window.prevProject = () => {
-    let newIndex = currentIndex - 1;
-    if (newIndex < 0) newIndex = projectFiles.length - 1;
-    loadProject(newIndex);
-  };
-
-  // Next Project button handler.
-  window.nextProject = () => {
-    let newIndex = (currentIndex + 1) % projectFiles.length;
-    loadProject(newIndex);
-  };
-
-  // Initial load of the first project.
-  loadProject(currentIndex);
-
-  // Also update navigation when the window fully loads to catch any late-rendered elements.
-  window.addEventListener('load', () => {
-    updateNavigation(currentIndex);
-  });
-
-  // Placeholder for initializing any project-specific features.
-  function initializeCarouselFeatures() {
-    // For example, initialize sliders, galleries, or other interactive elements.
   }
+
+  // Update both top and bottom navigation bars
+  function updateNavigation() {
+    // Grab all the lists with class "project-names"
+    const navLists = document.querySelectorAll(".project-names");
+    navLists.forEach((navList) => {
+      // For each list item inside
+      navList.querySelectorAll(".project-name").forEach((item) => {
+        const idx = parseInt(item.getAttribute("data-index"), 10);
+        // Toggle "active" if it matches the currentIndex
+        item.classList.toggle("active", idx === currentIndex);
+      });
+    });
+  }
+
+  // EVENT DELEGATION on the entire #projects-carousel section
+  carouselSection.addEventListener("click", (event) => {
+    // Check if the clicked element was a prev/next arrow
+    const arrowBtn = event.target.closest(".project-nav-btn");
+    if (arrowBtn) {
+      const direction = arrowBtn.dataset.direction;
+      if (direction === "prev") {
+        loadProject(currentIndex - 1);
+      } else if (direction === "next") {
+        loadProject(currentIndex + 1);
+      }
+      return; // stop here
+    }
+
+    // Check if the clicked element was a project-name item
+    const navItem = event.target.closest(".project-name");
+    if (navItem) {
+      const idx = parseInt(navItem.dataset.index, 10);
+      loadProject(idx);
+    }
+  });
+
+  // INITIAL LOAD
+  loadProject(currentIndex);
 });
