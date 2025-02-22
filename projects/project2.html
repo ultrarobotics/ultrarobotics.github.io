@@ -14,32 +14,38 @@
   <div class="thesis-container">
     <div class="thesis-text">
       <h4>Hobby Quadruped Project</h4>
-      <p class="project-date"><strong>Duration:</strong> 02-2021 – 07-2023</p>
+      <p class="project-date">Duration: February 2021 – July 2023</p>
       <p>
-        I developed a torque-controlled quadruped robot from scratch, gaining hands-on experience in mechanical design, electrical integration, and software development.
+        Through this project, I built a <strong>torque-controlled quadruped from scratch</strong>, gaining hands-on experience in <strong>mechanical design, electrical integration, and software development</strong>. This experience not only deepened my understanding of legged locomotion but also laid the foundation for my later research in the co-design of legged robots.
       </p>
       
-      <h5>Mechanical Design</h5>
+      <h5>Hardware Development: Designing and Building the Robot</h5>
       <ul>
-        <li>Selected components like bearings, belts, motors, and motor drivers to meet constraints and requirements.</li>
-        <li>Designed lightweight, backdriveable gearboxes using a double-stage belt reduction.</li>
-        <li>Addressed challenges like cable management and space constraints for the robot's electronics.</li>
-        <li>Used SolidWorks for a full CAD model of the robot.</li>
-        <li>Fabricated components using a Creality CR-10 3D printer and tested prototypes for durability.</li>
+        <li>Defined platform requirements, focusing on backdriveability, modularity, and cost-efficiency.</li>
+        <li>Designed a <strong>double-stage belt reduction gearbox</strong> to minimize backlash and reduce weight, integrating the gearbox seamlessly into each subcomponent of the robot.</li>
+        <li>Worked out the mechanical design in <strong>SolidWorks</strong>.</li>
+        <li>Fabricated parts using a <strong>Creality CR-10 3D printer</strong> and iterated designs based on durability and manufacturability testing.</li>
+        <li>Addressed key design challenges such as <strong>cable management and spatial constraints</strong> for the embedded electronics.</li>
       </ul>
       
-      <h5>Electrical Integration</h5>
+      <h5>Electrical System: Integration & Power Management</h5>
       <ul>
-        <li>Experimented with ST's motor driver developer kit and SimpleFOC before choosing an out-of-the-box solution.</li>
-        <li>Integrated ODrives with AMT encoders and controlled them via Raspberry Pi 4 with a CAN shield.</li>
-        <li>Designed the circuit with safety measures such as inrush current protection and ground loop prevention.</li>
+        <li>Explored different motor driver solutions, testing <strong>ST’s developer kit and SimpleFOC</strong>.</li>
+        <li>Integrated <strong>ODrive motor controllers</strong> with AMT encoders for precise torque control.</li>
+        <li>Designed and implemented a safe and robust electrical system, incorporating <strong>inrush current protection and ground loop prevention</strong>.</li>
+        <li>Established a CAN-based communication protocol between the computer and motor controllers for efficient real-time control.</li>
       </ul>
       
-      <h5>Software Development</h5>
+      <h5>Software Development: Control and Simulation</h5>
       <ul>
-        <li>Converted the robot’s CAD design from SolidWorks to URDF and MJCF formats for simulation.</li>
-        <li>Created a simulation environment to verify walking gaits and programmed C++ code for inverse kinematics and trajectory generation.</li>
-        <li>Used Ubuntu and ROS 2 on Raspberry Pi, developing both custom and existing nodes.</li>
+        <li>Converted the CAD model from <strong>SolidWorks → URDF → MJCF</strong> for use in simulation environments.</li>
+        <li>Developed an inverse kinematics solver and trajectory generation algorithms in <strong>C++</strong> to control leg movements.</li>
+        <li>Built a <strong>custom ROS 2 stack</strong> for high-level robot control running on the Raspberry Pi 4.</li>
+      </ul>
+      
+      <h5>Results & Insights</h5>
+      <ul>
+        <li><strong>Successfully created a working, compliant quadruped robot capable of basic walking.</strong></li>
       </ul>
     </div>
     
@@ -49,10 +55,12 @@
         <img src="images/project2-img3.jpg" alt="Project Image 3">
       </div>
     </div>
-      <div class="project-gallery">
-        <img src="images/project2-img1.jpg" alt="Project Image 1">
-        <img src="images/project2-img5.jpg" alt="Project Image 5">
-        <img src="images/project2-img6.jpg" alt="Project Image 6">
-      </div>
-    </div>
+</div>
+
+
+<div class="project-gallery">
+  <img src="images/project2-img1.jpg" alt="Project Image 1">
+  <img src="images/project2-img5.jpg" alt="Project Image 5">
+  <img src="images/project2-img6.jpg" alt="Project Image 6">
+  <img src="images/project2-img7.jpg" alt="Project Image 7">
 </div>

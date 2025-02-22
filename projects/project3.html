@@ -12,26 +12,33 @@
     <div class="thesis-text">
       <h4>Multidisciplinary Group Project: Shelf Scanning Robot</h4>
       <p class="project-date"><strong>Duration:</strong> 04-2023 – 07-2023</p>
-      <p>
-        This project was the capstone of my first year, integrating multiple disciplines to create a robot capable of scanning store shelves and removing misplaced items. I led the software architecture and motion planning aspects of the project.
-      </p>
+      <p> This project was the capstone of my first year—a group effort where each member focused on a different discipline within robotics. We developed a robot capable of scanning store shelves and removing misplaced items. I led the software architecture and motion planning aspects of the project. </p>
       
-      <h5>System Architecture</h5>
+      <h5>Software Architecture & System Integration</h5>
       <ul>
-        <li>Developed software layout for ROS so that all nodes could integrate seamlessly.</li>
-        <li>Collaborated with team members (Vision, Navigation, Human-robot-interaction) to ensure compatibility between all produced software.</li>
+        <li>Designed and implemented a modular ROS-based system architecture, ensuring efficient communication between software components.</li>
+        <li>Integrated various subsystems, including object detection (vision), autonomous navigation, and robotic manipulation.</li>
+        <li>Developed ROS nodes to manage task sequencing, enabling smooth execution of scanning, object detection, and pick-and-place tasks.</li>
       </ul>
       
-      <h5>Motion Planning</h5>
+      <h5>Motion Planning & Control</h5>
       <ul>
-        <li>Used MoveIt for robotic arm positioning.</li>
-        <li>Created movement sequences for picking and placing products, and greeting customers.</li>
+        <li>Implemented motion planning algorithms using <strong>MoveIt</strong> for robotic arm manipulation, allowing the robot to interact with shelf items.</li>
+        <li>Developed trajectory execution scripts to coordinate <strong>pick-and-place movements</strong> based on object locations detected by the vision system (AprilTags).</li>
+        <li>Designed motion sequences for product retrieval, misplaced item removal, and customer engagement gestures.</li>
       </ul>
       
-      <h5>Validation</h5>
+      <h5>Simulation & Real-World Validation</h5>
       <ul>
-        <li>Validated the motion in both simulated and real environments, ensuring reliability in a store-like setting.</li>
+        <li>Utilized a simulated testing environment in <strong>Gazebo</strong> to validate arm trajectories before real-world deployment.</li>
+        <li>Tested and fine-tuned robotic motions in real-world conditions to ensure reliable performance in store environments.</li>
+      </ul>
+      
+      <h5>Results</h5>
+      <ul>
+        <li><strong>Successfully developed and demonstrated a functional shelf-scanning robot capable of detecting and removing misplaced items in a demo store environment.</strong></li>
       </ul>
     </div>
   </div>
-</div>
+</div>  
+    
