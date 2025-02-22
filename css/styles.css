@@ -289,7 +289,7 @@ section ul li {
   color: var(--text-color);
   border: none;
   padding: 10px 10px; /* Equal padding on top/bottom and left/right */
-  font-size: 1.2em;
+  font-size: 1.5em;
   cursor: pointer;
   transition: color 0.2s, transform 0.2s;
   margin: 0 5px; /* Reduced margin for better spacing */
